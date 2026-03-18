@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LifeCare - Your Healthcare Partner</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/logo2.PNG" alt="logo" width="70" height="70">
+        <h4 class="ms-3 mb-0">LifeCare</h4>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+           <li class="nav-item"><a class="nav-link " href="hospital_list.html">Hospitals</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="contect.html">Contact-us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="appointment.html">Appointment</a>
+          </li>
+        </ul>
+        <div class="d-flex gap-2 ms-3">
+          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Your Health, Our Priority</h1>
+      <p>Find and book appointments with the best healthcare providers in your area</p>
+      
+      <div class="search-box">
+        <div class="row g-2">
+          <div class="col-md-4">
+            <input type="text" class="form-control" id="searchInput" placeholder="Search by hospital name...">
+          </div>
+          <div class="col-md-4">
+            <select class="form-select" id="serviceFilter">
+              <option value="">Filter by service</option>
+              <option value="cardiology">Cardiology</option>
+              <option value="orthopedics">Orthopedics</option>
+              <option value="neurology">Neurology</option>
+              <option value="dentistry">Dentistry</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-primary w-100" id="searchBtn">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Our Services</h2>
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card shadow-sm">
+            <i class="fas fa-calendar-check"></i>
+            <h5>Book Appointment</h5>
+            <p class="text-muted">Schedule appointments with top doctors easily</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card shadow-sm">
+            <i class="fas fa-video"></i>
+            <h5>Online Consultation</h5>
+            <p class="text-muted">Consult with doctors from your home</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card shadow-sm">
+            <i class="fas fa-heartbeat"></i>
+            <h5>Health Checkup</h5>
+            <p class="text-muted">Regular health checkups and wellness programs</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="service-card shadow-sm">
+            <i class="fas fa-ambulance"></i>
+            <h5>Emergency Care</h5>
+            <p class="text-muted">24/7 emergency medical assistance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Hospitals -->
+  <section class="featured-hospitals bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Featured Hospitals</h2>
+      <div class="row" id="hospitalContainer">
+        <div class="col-md-6 col-lg-4">
+          <div class="card hospital-card shadow-sm" data-hospital="apollo" data-service="cardiology">
+            <img src="images/h1.jpeg" alt="Apollo Hospitals">
+            <div class="card-body">
+              <h5 class="card-title">Apollo Hospitals</h5>
+              <div class="d-flex align-items-center mb-2">
+                <span class="text-warning">★★★★☆</span>
+                <span class="ms-2 text-muted small">4.8 (1250)</span>
+              </div>
+              <p class="text-muted small"><i class="fas fa-map-marker-alt"></i> Mumbai, Maharashtra</p>
+              <button class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#detailsModal" onclick="showHospitalDetails('Apollo Hospitals')">View Details</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card hospital-card shadow-sm" data-hospital="fortis" data-service="orthopedics">
+            <img src="images/h2.jpeg" alt="Fortis Healthcare">
+            <div class="card-body">
+              <h5 class="card-title">Fortis Healthcare</h5>
+              <div class="d-flex align-items-center mb-2">
+                <span class="text-warning">★★★★★</span>
+                <span class="ms-2 text-muted small">4.9 (980)</span>
+              </div>
+              <p class="text-muted small"><i class="fas fa-map-marker-alt"></i> Delhi, NCR</p>
+              <button class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#detailsModal" onclick="showHospitalDetails('Fortis Healthcare')">View Details</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card hospital-card shadow-sm" data-hospital="max" data-service="neurology">
+            <img src="images/h3.jpeg" alt="Max Healthcare">
+            <div class="card-body">
+              <h5 class="card-title">Max Healthcare</h5>
+              <div class="d-flex align-items-center mb-2">
+                <span class="text-warning">★★★★☆</span>
+                <span class="ms-2 text-muted small">4.7 (850)</span>
+              </div>
+              <p class="text-muted small"><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</p>
+              <button class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#detailsModal" onclick="showHospitalDetails('Max Healthcare')">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonial-section">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Patient Testimonials</h2>
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <p class="mb-3">"LifeCare made it so easy to book my appointment. The entire process was smooth and quick!"</p>
+            <div class="d-flex align-items-center">
+              <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Patient">
+              <div>
+                <h6 class="mb-0">Rajesh Kumar</h6>
+                <small class="text-muted">Mumbai</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <p class="mb-3">"Great platform! Found a specialist doctor nearby and got an appointment within 24 hours."</p>
+            <div class="d-flex align-items-center">
+              <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Patient">
+              <div>
+                <h6 class="mb-0">Priya Singh</h6>
+                <small class="text-muted">Delhi</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="testimonial-card">
+            <p class="mb-3">"Excellent service! The doctors are highly professional and the hospitals are top-notch."</p>
+            <div class="d-flex align-items-center">
+              <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Patient">
+              <div>
+                <h6 class="mb-0">Amit Patel</h6>
+                <small class="text-muted">Bangalore</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+    <div class="container text-center">
+      <h2 class="mb-4">Ready to Book Your Appointment?</h2>
+      <p class="mb-4 fs-5">Get access to the best healthcare providers near you</p>
+      <a href="appointment.html" class="btn btn-light btn-lg">
+        <i class="fas fa-calendar-alt"></i> Book Now
+      </a>
+    </div>
+  </section>
+
+ <!--footer start-->
+    <footer class="px-0 m-0">
+      <div class="row px-0">
+        <div class="col-6 col-md-3 mb-3">
+          <h5>LifeCare</h5>
+          <p>Your trusted healthcare partner, connecting you with the best
+            medical facilities across the country.
+
+          </p>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+          <h5>Quick Links</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="about.html" class="nav-link p-0">about us</a></li>
+            <li class="nav-item mb-2"><a href="services.html" class="nav-link p-0 ">services</a></li>
+            <li class="nav-item mb-2"><a href="hospital_list.html" class="nav-link p-0 ">hospitals</a></li>
+            <li class="nav-item mb-2"><a href="contact.html" class="nav-link p-0 ">contact us</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+          <h5>services</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="appointment.html" class="nav-link p-0 ">Book appoinment</a></li>
+            <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 ">Emergency care</a></li>
+            <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 ">Health checkup</a></li>
+            <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 ">Online consultation</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-3 mb-3">
+          <h5>Contact info</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2">Email:info@lifecare.com</li>
+            <li class="nav-item mb-2">Phone: +91 1800 123 4567</li>
+            <li class="nav-item mb-2">Address: 123 Healthcare Street</li>
+            <li class="nav-item mb-2">india</li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top">
+        <p>© 2025 Company, Inc. All rights reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Instagram"><svg class="bi" width="24"
+                height="24">
+                <use xlink:href="#instagram"></use>
+              </svg></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Facebook"><svg class="bi" width="24"
+                height="24" aria-hidden="true">
+                <use xlink:href="#facebook"></use>
+              </svg></a></li>
+        </ul>
+      </div>
+    </footer>
+
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="loginEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="loginPassword" required>
+            </div>
+            <div class="form-check mb-3">
+              <input type="checkbox" class="form-check-input" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Register</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm">
+            <div class="mb-3">
+              <label for="regName" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="regName" required>
+            </div>
+            <div class="mb-3">
+              <label for="regEmail" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="regEmail" required>
+            </div>
+            <div class="mb-3">
+              <label for="regPhone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="regPhone" required>
+            </div>
+            <div class="mb-3">
+              <label for="regPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="regPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="regConfirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="regConfirmPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hospital Details Modal -->
+  <div class="modal fade" id="detailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="hospitalName">Hospital Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div id="hospitalDetails"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a href="appointment.html" class="btn btn-primary">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+     <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>
